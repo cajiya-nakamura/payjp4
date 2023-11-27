@@ -15,6 +15,7 @@ namespace Plugin\payjp4\Service\Method;
 
 use Eccube\Common\EccubeConfig;
 use Eccube\Entity\Order;
+use Eccube\Entity\Master\OrderStatus;
 use Eccube\Repository\Master\OrderStatusRepository;
 use Eccube\Service\Payment\PaymentMethod;
 use Eccube\Service\Payment\PaymentMethodInterface;
@@ -105,6 +106,10 @@ class CreditCard implements PaymentMethodInterface
 
             // purchaseFlow::commitを呼び出し、購入処理をさせる
             $this->purchaseFlow->commit($this->Order, new PurchaseContext());
+
+            // 受注ステーテスを支払済みへ変更
+            $OrderStatus = $this->orderStatusRepository->find(OrderStatus::PAID);
+            $this->Order->setOrderStatus($OrderStatus);
 
             $result = new PaymentResult();
             $result->setSuccess(true);

@@ -44,8 +44,8 @@ class AddCartEventSubscriber implements EventSubscriberInterface
     {
         // TODO: Implement getSubscribedEvents() method.
         return [
-            EccubeEvents::FRONT_PRODUCT_CART_ADD_INITIALIZE => 'onAddCart',
-            EccubeEvents::FRONT_MYPAGE_MYPAGE_ORDER_INITIALIZE => 'onAddCart'
+            EccubeEvents::FRONT_PRODUCT_CART_ADD_INITIALIZE => 'onFrontProductCartAddInitialize',
+            EccubeEvents::FRONT_MYPAGE_MYPAGE_ORDER_INITIALIZE => 'onFrontMypageMypageOrderInitialize'
         ];
     }
 
