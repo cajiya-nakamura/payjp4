@@ -12,9 +12,9 @@
 
 namespace Plugin\payjp4\Repository\Payjp;
 
-use Plugin\payjp4\Entity\Payjp\Subscription;
-use Symfony\Bridge\Doctrine\RegistryInterface;
 use Eccube\Repository\AbstractRepository;
+use Plugin\payjp4\Entity\Payjp\Subscription;
+use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * Class SubscriptionRepository
@@ -24,9 +24,9 @@ class SubscriptionRepository extends AbstractRepository
 {
     /**
      * SubscriptionRepository constructor.
-     * @param RegistryInterface $registry
+     * @param ManagerRegistry $registry
      */
-    public function __construct(RegistryInterface $registry)
+    public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Subscription::class);
     }

@@ -14,9 +14,8 @@ namespace Plugin\payjp4\Repository\Payjp;
 
 use Eccube\Repository\AbstractRepository;
 use Plugin\payjp4\Entity\Payjp\Event;
-use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\Persistence\ManagerRegistry;
 
-/**
 /**
  * Class EventRepository
  * @package Plugin\payjp4\Repository\Payjp
@@ -25,9 +24,9 @@ class EventRepository extends AbstractRepository
 {
     /**
      * WebhookRepository constructor.
-     * @param RegistryInterface $registry
+     * @param ManagerRegistry $registry
      */
-    public function __construct(RegistryInterface $registry)
+    public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Event::class);
     }

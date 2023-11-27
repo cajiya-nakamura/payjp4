@@ -14,7 +14,7 @@ namespace Plugin\payjp4\Repository\Payjp;
 
 use Eccube\Repository\AbstractRepository;
 use Plugin\payjp4\Entity\Payjp\CreditCard;
-use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * Class CreditCardRepository
@@ -25,9 +25,9 @@ class CreditCardRepository extends AbstractRepository
     /**
      * CreditCardRepository constructor.
      *
-     * @param RegistryInterface $registry
+     * @param ManagerRegistry $registry
      */
-    public function __construct(RegistryInterface $registry)
+    public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, CreditCard::class);
     }

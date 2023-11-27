@@ -14,7 +14,7 @@ namespace Plugin\payjp4\Repository;
 
 use Eccube\Repository\AbstractRepository;
 use Plugin\payjp4\Entity\PaymentStatus;
-use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * Class PaymentStatusRepository
@@ -24,9 +24,9 @@ class PaymentStatusRepository extends AbstractRepository
 {
     /**
      * PaymentStatusRepository constructor.
-     * @param RegistryInterface $registry
+     * @param ManagerRegistry $registry
      */
-    public function __construct(RegistryInterface $registry)
+    public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, PaymentStatus::class);
     }
